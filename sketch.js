@@ -33,6 +33,8 @@ var air;
 var can_w;
 var can_h;
 
+var noBodies;
+
 function preload()
 {
   bg_img = loadImage('background.png');
@@ -61,11 +63,13 @@ function setup() {
   if(isMobile){
     can_w = displayWidth;
     can_h = displayHeight;
+    noBodies = 8;
     createCanvas(displayWidth,displayHeight);
   }
   else{
     can_w = windowWidth;
     can_h = windowHeight;
+    noBodies = 12;
     createCanvas(windowWidth,windowHeight);
   }
 
@@ -100,9 +104,9 @@ function setup() {
   mute_btn.size(50,50);
   mute_btn.mouseClicked(mute);
   
-  rope = new Rope(15,{x:40,y:30});
-  rope2 = new Rope(12,{x:can_w - 190,y:40});
-  rope3 = new Rope(12,{x:can_w - 90,y:225});
+  rope = new Rope(noBodies,{x:40,y:30});
+  rope2 = new Rope(noBodies,{x:can_w - 190,y:40});
+  rope3 = new Rope(noBodies,{x:can_w - 90,y:225});
   ground = new Ground(can_w/2,can_h-10,can_w,20);
 
   blink.frameDelay = 20;
